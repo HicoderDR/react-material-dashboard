@@ -223,8 +223,7 @@ const UsersTable = props => {
                   </TableCell>
                   <TableCell>用户ID</TableCell>
                   <TableCell>手机号</TableCell>
-                  <TableCell>余额</TableCell>
-                  <TableCell>已使用</TableCell>
+                  <TableCell>截止日期</TableCell>
                   <TableCell>操作</TableCell>
                 </TableRow>
               </TableHead>
@@ -264,9 +263,8 @@ const UsersTable = props => {
                     </TableCell>
                     <TableCell>{user.userName}</TableCell>
                     <TableCell>
-                      {user.balance}
+                      {user.endDate}
                     </TableCell>
-                    <TableCell>{user.used}</TableCell>
                     <TableCell>
                     <Button
                       variant="contained"
@@ -274,7 +272,7 @@ const UsersTable = props => {
                       startIcon={<AddBoxIcon />}
                       onClick={addterm.bind(this,user)}  
                     >
-                      限免
+                      修改限免
                     </Button>
                     <Button
                       variant="contained"

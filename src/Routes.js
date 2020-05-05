@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 
 import { RouteWithLayout } from './components';
@@ -8,6 +8,7 @@ import {
   Dashboard as DashboardView,
   ProductList as ProductListView,
   UserList as UserListView,
+  TermList as TermListView,
   Typography as TypographyView,
   Icons as IconsView,
   Account as AccountView,
@@ -17,62 +18,48 @@ import {
   NotFound as NotFoundView
 } from './views';
 
-const Routes = () => {
+const Routes = props => {
+  const { history } = props;
+  const [token,settoken]=useState(sessionStorage.token)
+  
+  useEffect(() => {
+    settoken(sessionStorage.token)
+  },[history]);
+
   return (
     <Switch>
       <Redirect
         exact
         from="/"
-        to="/dashboard"
+        to="/sign-in"
       />
       <RouteWithLayout
         component={DashboardView}
         exact
         layout={MainLayout}
         path="/dashboard"
-      />
+      />:
       <RouteWithLayout
         component={UserListView}
         exact
         layout={MainLayout}
         path="/users"
       />
+      
       <RouteWithLayout
-        component={ProductListView}
+        component={TermListView}
         exact
         layout={MainLayout}
-        path="/products"
+        path="/termusers"
       />
-      <RouteWithLayout
-        component={TypographyView}
-        exact
-        layout={MainLayout}
-        path="/typography"
-      />
-      <RouteWithLayout
-        component={IconsView}
-        exact
-        layout={MainLayout}
-        path="/icons"
-      />
-      <RouteWithLayout
-        component={AccountView}
-        exact
-        layout={MainLayout}
-        path="/account"
-      />
+     
       <RouteWithLayout
         component={SettingsView}
         exact
         layout={MainLayout}
         path="/settings"
       />
-      <RouteWithLayout
-        component={SignUpView}
-        exact
-        layout={MinimalLayout}
-        path="/sign-up"
-      />
+      
       <RouteWithLayout
         component={SignInView}
         exact

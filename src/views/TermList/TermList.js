@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const UserList = () => {
+const TermList = () => {
   const classes = useStyles();
 
   const [alertopen,setalertopen]=useState(false);
@@ -31,7 +31,7 @@ const UserList = () => {
   const [v,setv]=useState(0);
 
   const getUsers=()=>{
-    httpGet('/api/admin/alluser')
+    httpGet('/api/admin/allterm')
     .then(resp=>resp.json())
     .then(resp=>{
       setalertstyle("success")
@@ -72,7 +72,6 @@ const UserList = () => {
     setusers(newlist);
   }
   if(sessionStorage.token) 
-  
   return (
     <div className={classes.root}>
       <UsersToolbar users={users} search={search}/>
@@ -89,4 +88,4 @@ const UserList = () => {
   else return (<NotFoundView></NotFoundView>)
 };
 
-export default UserList;
+export default TermList;

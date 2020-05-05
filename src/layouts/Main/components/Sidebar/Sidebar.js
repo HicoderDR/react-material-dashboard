@@ -44,42 +44,22 @@ const Sidebar = props => {
 
   const pages = [
     {
-      title: 'Dashboard',
+      title: '公告板',
       href: '/dashboard',
       icon: <DashboardIcon />
     },
     {
-      title: 'Users',
+      title: '用户',
       href: '/users',
       icon: <PeopleIcon />
     },
     {
-      title: 'Products',
-      href: '/products',
-      icon: <ShoppingBasketIcon />
+      title: '限免用户',
+      href: '/termusers',
+      icon: <PeopleIcon />
     },
     {
-      title: 'Authentication',
-      href: '/sign-in',
-      icon: <LockOpenIcon />
-    },
-    {
-      title: 'Typography',
-      href: '/typography',
-      icon: <TextFieldsIcon />
-    },
-    {
-      title: 'Icons',
-      href: '/icons',
-      icon: <ImageIcon />
-    },
-    {
-      title: 'Account',
-      href: '/account',
-      icon: <AccountBoxIcon />
-    },
-    {
-      title: 'Settings',
+      title: '维护指南',
       href: '/settings',
       icon: <SettingsIcon />
     }
@@ -103,7 +83,6 @@ const Sidebar = props => {
           className={classes.nav}
           pages={pages}
         />
-        <UpgradePlan />
       </div>
     </Drawer>
   );

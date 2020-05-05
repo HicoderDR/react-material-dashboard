@@ -27,13 +27,12 @@ const Footer = props => {
           href="https://devias.io/"
           target="_blank"
         >
-          Devias IO
+          HicoDR
         </Link>
-        . 2019
+        . 2020
       </Typography>
       <Typography variant="caption">
-        Created with love for the environment. By designers and developers who
-        love to work together in offices!
+        同济大学 工程结构振动舒适度课题组
       </Typography>
     </div>
   );

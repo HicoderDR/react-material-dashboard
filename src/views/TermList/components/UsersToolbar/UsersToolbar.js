@@ -59,6 +59,7 @@ const UsersToolbar = props => {
           display: 'flex',
           alignItems: 'center',
           width: 220,
+          marginRight:100
         }}>
           <InputBase
             placeholder="Search by phonenum"
@@ -69,6 +70,8 @@ const UsersToolbar = props => {
             <SearchIcon></SearchIcon>
           </IconButton>
         </Paper>
+        
+        <h3>{"过期后一天将被移出此列表"}</h3>
       </div>
     </div>
   );

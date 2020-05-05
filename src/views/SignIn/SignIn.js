@@ -172,7 +172,14 @@ const SignIn = props => {
 
   const handleSignIn = event => {
     event.preventDefault();
-    history.push('/');
+    //console.log(formState.values.password)
+    //console.log(formState.values.email)
+    if(formState.values.email=='TSmartVIB@163.com'&& formState.values.password=='chenJUN409'){
+      //console.log(localStorage.token)
+      sessionStorage.setItem("token","20200505549")
+      //console.log(localStorage.token)
+      setTimeout(()=>{history.replace('/dashboard');},3000)
+    }
   };
 
   const hasError = field =>
@@ -238,47 +245,8 @@ const SignIn = props => {
                 >
                   Sign in
                 </Typography>
-                <Typography
-                  color="textSecondary"
-                  gutterBottom
-                >
-                  Sign in with social media
-                </Typography>
-                <Grid
-                  className={classes.socialButtons}
-                  container
-                  spacing={2}
-                >
-                  <Grid item>
-                    <Button
-                      color="primary"
-                      onClick={handleSignIn}
-                      size="large"
-                      variant="contained"
-                    >
-                      <FacebookIcon className={classes.socialIcon} />
-                      Login with Facebook
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button
-                      onClick={handleSignIn}
-                      size="large"
-                      variant="contained"
-                    >
-                      <GoogleIcon className={classes.socialIcon} />
-                      Login with Google
-                    </Button>
-                  </Grid>
-                </Grid>
-                <Typography
-                  align="center"
-                  className={classes.sugestion}
-                  color="textSecondary"
-                  variant="body1"
-                >
-                  or login with email address
-                </Typography>
+                
+                
                 <TextField
                   className={classes.textField}
                   error={hasError('email')}
@@ -317,20 +285,8 @@ const SignIn = props => {
                   variant="contained"
                 >
                   Sign in now
-                </Button>
-                <Typography
-                  color="textSecondary"
-                  variant="body1"
-                >
-                  Don't have an account?{' '}
-                  <Link
-                    component={RouterLink}
-                    to="/sign-up"
-                    variant="h6"
-                  >
-                    Sign up
-                  </Link>
-                </Typography>
+                </Button> 
+               
               </form>
             </div>
           </div>
