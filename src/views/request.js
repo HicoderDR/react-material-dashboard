@@ -1,6 +1,6 @@
 
 
-const server="http://localhost:8081"
+const server="http://47.100.90.196:8081"
 // 封装get请求
 export function httpGet(url){
     var result = fetch(server+url)

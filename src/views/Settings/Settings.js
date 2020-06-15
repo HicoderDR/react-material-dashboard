@@ -43,6 +43,7 @@ const Settings = () => {
     {label:"手机号",key:"userName"},
     {label:"余值",key:"balance"},
     {label:"已使用",key:"used"},
+    {label:"上次购买优惠时间",key:"icon"},
   ]
   const termheaders=[
     {label:"用户ID",key:"userID"},
@@ -64,6 +65,7 @@ const Settings = () => {
           userName:data[i].userName,
           balance:data[i].balance,
           used:data[i].used,
+          icon:data[i].icon,
         })
       }
       setusers(newlist)
@@ -310,7 +312,105 @@ const Settings = () => {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
+        <ExpansionPanel style={{width:'100%'}}>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className={classes.heading}>钢筋网页管理端异常(java)</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              1.首先使用ssh登陆服务器
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              2.screen -ls 找到frontserver
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              3.screen -r -d frontserver
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              4.Ctrl+C后重启：在/root/APP下 serve -s front_dist
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              5.关闭窗口即可
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel style={{width:'100%'}}>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className={classes.heading}>直接操作数据库</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              1.首先使用ssh-root登陆服务器
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              2.终端键入mysql进入数据库操作界面
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              3.选定数据库use steelcounter;
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              4.例如给每个用户增加余额3次
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              5.update user set balance=balance+3;
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              备注：请慎重，建议先在测试数据库中进行模拟，确认无误后先停止8081端口的后台服务(防止备份间隙用户充值等情况)，然后备份数据库，最后进行操作。
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              测试数据库的构建：请使用本机mysql创建steelcounter数据库，后执行steelcounter-test.sql
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <ExpansionPanel style={{width:'100%'}}>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className={classes.heading}>手动备份数据库</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              1.首先使用ssh-root登陆服务器
+            </Typography>
+          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>
+            <Typography>
+              2.备份命令mysqldump -h 127.0.0.1 -P 3306 -u counter -p PASSWORD steelcounter > bak.sql;
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
       </Grid>
+      
       <Snackbar open={alertopen} autoHideDuration={3000} onClose={handleAlertClose}>
         <Alert onClose={handleAlertClose} severity={alertstyle}>
           {alertcontent}

@@ -24,7 +24,7 @@ const Footer = props => {
         &copy;{' '}
         <Link
           component="a"
-          href="https://devias.io/"
+          href="https://hicoderdr.github.io/"
           target="_blank"
         >
           HicoDR
@@ -32,7 +32,14 @@ const Footer = props => {
         . 2020
       </Typography>
       <Typography variant="caption">
-        同济大学 工程结构振动舒适度课题组
+        同济大学 
+        <Link
+          component="a"
+          href="https://www.tsmartvib.com/"
+          target="_blank"
+        >
+          工程结构振动舒适度课题组
+        </Link>
       </Typography>
     </div>
   );
